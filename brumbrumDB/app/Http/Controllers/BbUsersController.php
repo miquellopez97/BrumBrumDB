@@ -39,17 +39,17 @@ class BbUsersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Username' => 'required',
-            'Email' => 'required',
-            'Name' => 'required',
-            'Surname',
-            'Password' => 'required',
-            'Rol' => 'required',
-            'Detail',
-            'OtherInformation',
+            'username' => 'required',
+            'email' => 'required',
+            'name' => 'required',
+            'surname',
+            'password' => 'required',
+            'rol' => 'required',
+            'detail',
+            'otherInformation',
         ]);
 
-        BbUsers::create($request->all());
+        $a = BbUsers::create($request->all());
 
         return redirect()->route('user.index')
                         ->with('success', 'User created successfully.');

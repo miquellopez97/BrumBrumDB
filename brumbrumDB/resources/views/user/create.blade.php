@@ -36,7 +36,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="email">
+                <input type="email" name="email" class="form-control" placeholder="email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -72,7 +72,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Other Information:</strong>
-                <input type="text" name="otherInfo" class="form-control" placeholder="otherInfo">
+                <input type="text" name="otherInformation" class="form-control" placeholder="otherInformation">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
