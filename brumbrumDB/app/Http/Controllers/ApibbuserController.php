@@ -8,84 +8,30 @@ use Illuminate\Http\Request;
 
 class ApibbuserController extends Controller
 {
-    public function register(Request $request)
+    public function index()
+    {
+        return response()->json(Bbusers::all(), 200);
+    }
+
+    public function store(Request $request)
     {
         Bbusers::create($request->all());
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function show(Bbusers $bbusers)
     {
-        //
+        return response()->json($bbusers, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function update(Request $request, Bbusers $bbusers)
     {
-        //
+        $bbusers->fill($request->all())->save();
+        return response()->json($bbusers, 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function destroy(Bbusers $bbusers)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\apibbuser  $apibbuser
-     * @return \Illuminate\Http\Response
-     */
-    public function show(apibbuser $apibbuser)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\apibbuser  $apibbuser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(apibbuser $apibbuser)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\apibbuser  $apibbuser
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, apibbuser $apibbuser)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\apibbuser  $apibbuser
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(apibbuser $apibbuser)
-    {
-        //
+        $bbusers->forceDelete();
+        return response()->noContent();
     }
 }

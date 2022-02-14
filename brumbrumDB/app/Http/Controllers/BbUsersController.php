@@ -88,12 +88,12 @@ class BbUsersController extends Controller
     public function update(Request $request, BbUsers $user)
     {
         $request->validate([
-            'Username' => 'required',
-            'Email' => 'required',
-            'Name' => 'required',
+            'Username',
+            'Email',
+            'Name',
             'Surname',
-            'Password' => 'required',
-            'Rol' => 'required',
+            'Password',
+            'Rol',
             'Detail',
             'OtherInformation',
         ]);
