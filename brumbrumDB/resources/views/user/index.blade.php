@@ -20,6 +20,7 @@
 
     <table class="table table-bordered">
         <tr>
+            <th>ID</th>
             <th>Username</th>
             <th>Email</th>
             <th>Name</th>
@@ -31,7 +32,7 @@
         </tr>
         @foreach ($users as $users)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $users->id }}</td>
             <td>{{ $users->username }}</td>
             <td>{{ $users->email }}</td>
             <td>{{ $users->name }}</td>

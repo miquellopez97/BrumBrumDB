@@ -9,6 +9,10 @@ class Bbusers extends Model
 {
     use HasFactory;
 
+    protected $table = 'bbusers';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'username','email','name','surname','password','rol','detail','otherInformation',
     ];
