@@ -31,49 +31,49 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Username:</strong>
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username" value={{$user->username}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Email:</strong>
-                    <input type="text" name="email" class="form-control" placeholder="Email">
+                    <input type="text" name="email" class="form-control" placeholder="Email" value={{$user->email}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nombre:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <input type="text" name="name" class="form-control" placeholder="Name" value={{$user->name}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Apellido:</strong>
-                    <input type="text" name="surname" class="form-control" placeholder="Apellido">
+                    <input type="text" name="surname" class="form-control" placeholder="Apellido" value={{$user->surname}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Password:</strong>
-                    <input type="text" name="password" class="form-control" placeholder="Password">
+                    <input type="text" name="password" class="form-control" placeholder="Password" value={{$user->password}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Rol:</strong>
-                    <input type="text" name="rol" class="form-control" placeholder="Rol">
+                    <input type="text" name="rol" class="form-control" placeholder="Rol" value={{$user->rol}}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Detail:</strong>
-                    <input type="text" name="detail" class="form-control" placeholder="Detail">
+                    <textarea type="text" name="detail" class="form-control" placeholder="Detail" value={{$user->detail}}></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Other Information:</strong>
-                    <input type="text" name="otherInfo" class="form-control" placeholder="Other Information">
+                    <textarea type="text" name="otherInfo" class="form-control" placeholder="Other Information" value={{$user->otherInformation}}></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
