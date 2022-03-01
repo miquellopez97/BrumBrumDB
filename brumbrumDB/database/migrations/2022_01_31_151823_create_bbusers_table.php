@@ -16,7 +16,7 @@ class CreateBbusersTable extends Migration
         Schema::create('bbusers', function (Blueprint $table) {
             $table->id();
 
-            $table->string('username');
+            $table->string('username')->nullable();
             $table->string('email');
             $table->string('name');
             $table->string('surname');

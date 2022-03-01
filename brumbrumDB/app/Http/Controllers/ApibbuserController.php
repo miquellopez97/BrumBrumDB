@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bbusers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ApibbuserController extends Controller
 {
@@ -14,7 +15,24 @@ class ApibbuserController extends Controller
 
     public function store(Request $request)
     {
-        $user = Bbusers::create($request->all(), 200);
+        $validateData = $request->validate([
+            'email' => 'required|email|unique:Bbusers',
+            'name' => 'required|max:40',
+            'surname' => 'required|max:40',
+            'password' => 'required',
+            'rol' => 'required|max:20',
+            'detail' => 'max:500',
+            'otherInformation' => 'max:500'
+        ]);
+
+        $validateData['password'] = Hash::make($request->password);
+
+        $user = Bbusers::create($validateData, 200);
+
+        $accesToken = $user->createToken('authToken')->accesToken;
+
+        $user->accesToken = $accesToken;
+
         return response()->json($user, 200);
     }
 
