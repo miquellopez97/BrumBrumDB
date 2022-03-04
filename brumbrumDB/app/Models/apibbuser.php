@@ -13,6 +13,6 @@ class apibbuser extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'username','email','name','surname','password','rol','detail','otherInformation',
+        'username','email','name','surname','password','rol','detail','otherInformation'
     ];
 }

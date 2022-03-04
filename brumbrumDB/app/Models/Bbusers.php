@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Bbusers extends Authenticatable
@@ -16,6 +16,6 @@ class Bbusers extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'username','email','name','surname','password','rol','detail','otherInformation',
+        'username','email','name','surname','password','rol','detail','otherInformation','photo'
     ];
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bbusers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class ApibbuserController extends Controller
 {
@@ -30,11 +31,7 @@ class ApibbuserController extends Controller
 
         $user = Bbusers::create($validateData, 200);
 
-        // $token = $user->createToken('appToken')->accessToken;
-
         $success['token'] =  $user->createToken('appToken')->accessToken;
-
-        // $user->token = $token;
 
         return response()->json([$user,$success], 200);
     }
