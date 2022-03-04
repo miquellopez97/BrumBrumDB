@@ -16,6 +16,7 @@ class ApibbuserController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
+            'username' => 'required',
             'email' => 'required|email|unique:Bbusers',
             'name' => 'required|max:40',
             'surname' => 'required|max:40',
@@ -29,16 +30,18 @@ class ApibbuserController extends Controller
 
         $user = Bbusers::create($validateData, 200);
 
-        $accesToken = $user->createToken('authToken')->accesToken;
+        // $token = $user->createToken('appToken')->accessToken;
 
-        $user->accesToken = $accesToken;
+        $success['token'] =  $user->createToken('appToken')->accessToken;
 
-        return response()->json($user, 200);
+        // $user->token = $token;
+
+        return response()->json([$user,$success], 200);
     }
 
     public function show($user)
     {
-        $bbusers = Bbusers::find($user);
+        $bbusers = Bbusers::where('email', $user)->first();
         return response()->json($bbusers, 200);
     }
 
