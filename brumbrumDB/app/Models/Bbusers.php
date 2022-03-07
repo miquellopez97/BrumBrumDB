@@ -16,6 +16,6 @@ class Bbusers extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'username','email','name','surname','password','rol','detail','otherInformation','photo'
+        'username','email','name','surname','password','rol','detail','otherInformation'
     ];
 }

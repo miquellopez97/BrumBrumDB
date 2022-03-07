@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('user', ApibbuserController::class);
+
+Route::post('user/login', [ApibbuserController::class, 'login']);

@@ -24,7 +24,6 @@ class CreateBbusersTable extends Migration
             $table->string('rol');
             $table->string('detail');
             $table->string('otherInformation');
-            $table->integer('photo');
 
             $table->timestamps();
         });

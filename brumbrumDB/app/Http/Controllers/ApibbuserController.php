@@ -39,6 +39,7 @@ class ApibbuserController extends Controller
     public function show($user)
     {
         $bbusers = Bbusers::where('email', $user)->first();
+
         return response()->json($bbusers, 200);
     }
 
@@ -54,5 +55,29 @@ class ApibbuserController extends Controller
         $bbusers = Bbusers::find($user);
         $bbusers->forceDelete();
         return response()->noContent();
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string'
+        ]);
+
+        $credentials = request(['email', 'password']);
+
+        if (!Auth::attempt($credentials)) {
+            return response()->json([
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        $bbusers = $request->user();
+        $tokenResult = $bbusers->createToken('Personal Access Token');
+
+        return response()->json([
+            'access_token' => $tokenResult->accessToken,
+            'token_type' => 'Bearer'
+        ]);
     }
 }
