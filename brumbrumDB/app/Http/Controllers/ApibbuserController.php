@@ -80,4 +80,20 @@ class ApibbuserController extends Controller
             'token_type' => 'Bearer'
         ]);
     }
+
+    public function logout()
+    {
+        Auth()->logout();
+
+        // $request->user()->token()->revoke();
+
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
+
+    public function indexFilter(Request $request)
+    {
+        return response()->json(Bbusers::whereIn('rol', [$request->value])->get(), 200);
+    }
 }

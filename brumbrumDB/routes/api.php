@@ -4,21 +4,8 @@ use App\Http\Controllers\ApibbuserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::apiResource('user', ApibbuserController::class);
 
-Route::post('user/login', [ApibbuserController::class, 'login']);
+Route::post('auth/login', [ApibbuserController::class, 'login']);
+Route::get('auth/logout', [ApibbuserController::class, 'logout']);
+Route::get('indexFilter', [ApibbuserController::class, 'indexFilter']);
