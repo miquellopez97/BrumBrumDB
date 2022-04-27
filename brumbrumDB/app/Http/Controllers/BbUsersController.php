@@ -32,7 +32,9 @@ class BbUsersController extends Controller
             'otherInformation',
         ]);
 
-        $a = BbUsers::create($request->all());
+        $request['password'] = Hash::make($request['password']);
+
+        BbUsers::create($request->all());
 
         return redirect()->route('user.index')
                         ->with('success', 'User created successfully.');

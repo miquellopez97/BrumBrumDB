@@ -76,18 +76,18 @@ class ApibbuserController extends Controller
         $tokenResult = $bbusers->createToken('Personal Access Token');
 
         return response()->json([
-            'access_token' => $tokenResult->accessToken,
+            'access_token' => $tokenResult,
             'token_type' => 'Bearer'
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth()->logout();
-
-        // $request->user()->token()->revoke();
+        $header = $request->header('Authorization');
 
         return response()->json([
+            'access_token' => $header,
             'message' => 'Successfully logged out'
         ]);
     }
@@ -95,5 +95,10 @@ class ApibbuserController extends Controller
     public function indexFilter(Request $request)
     {
         return response()->json(Bbusers::whereIn('rol', [$request->value])->get(), 200);
+    }
+
+    public function getUser(Request $request)
+    {
+        return response()->json($request->user());
     }
 }

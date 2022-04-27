@@ -9,3 +9,5 @@ Route::apiResource('user', ApibbuserController::class);
 Route::post('auth/login', [ApibbuserController::class, 'login']);
 Route::get('auth/logout', [ApibbuserController::class, 'logout']);
 Route::get('indexFilter', [ApibbuserController::class, 'indexFilter']);
+
+Route::get('getUser', [ApibbuserController::class, 'getUser']);
